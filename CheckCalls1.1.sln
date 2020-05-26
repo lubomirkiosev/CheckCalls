@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30011.22
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CheckCalls1.1", "CheckCalls1.1.csproj", "{08A42347-862F-44E5-80A9-E9E0D535E65A}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{08A42347-862F-44E5-80A9-E9E0D535E65A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{08A42347-862F-44E5-80A9-E9E0D535E65A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{08A42347-862F-44E5-80A9-E9E0D535E65A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{08A42347-862F-44E5-80A9-E9E0D535E65A}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {0BDD18F9-F2CF-42DA-ADB2-2108E37E86C3}
+	EndGlobalSection
+EndGlobal

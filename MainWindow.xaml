@@ -1,0 +1,23 @@
+﻿<Window x:Class="CheckCalls1._1.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+       Title="Chek Call" Height="450" Width="800">
+    <Grid  Margin="0,0,10,-6" Background="Black">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="60*"/>
+            <ColumnDefinition Width="51*"/>
+            <ColumnDefinition Width="679*"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="265*"/>
+            <RowDefinition Height="156*"/>
+            <RowDefinition Height="19*"/>
+        </Grid.RowDefinitions>
+        <TextBox IsEnabled="True" x:Name="txtFile" HorizontalAlignment="Left" Margin="0,38,0,0" Text="Insert .txt. document" TextWrapping="Wrap" VerticalAlignment="Top" Width="513" Height="28" Grid.ColumnSpan="2" Grid.Column="1"/>
+        <TextBox IsEnabled="True" x:Name="xlxsFile" HorizontalAlignment="Left" Text="Insert .xlxs document" TextWrapping="Wrap" VerticalAlignment="Center" Width="513" Height="26" Grid.ColumnSpan="2" Grid.Column="1"/>
+        <Button Name="btnOpenTxtFile" Click="btnOpenTxtFiles_Click" Margin="485.6,38,30,190.8" Background="White" Grid.Column="2">Choose .txt file</Button>
+        <Button  Name="btnOpenXlxsFile" Click="btnOpenXlxsFiles_Click" Margin="485.6,115,30,115.8" Background="White" Grid.Column="2">Choose .xlxs file</Button>
+        <Button Margin="403.6,180,30,36.8" Name="btnSubmitFile" Click="btnSubmitFiles_Click" Background="SkyBlue" Foreground="Black" Grid.Column="2" >SUBMIT</Button>
+    </Grid>
+</Window>
+
