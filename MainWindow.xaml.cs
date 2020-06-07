@@ -26,23 +26,7 @@ namespace CheckCalls1._1
 
         OpenFileDialog openFileDialog = new OpenFileDialog();
 
-        private void btnOpenTxtFiles_Click(object sender, RoutedEventArgs e)
-        {
-            try
-            {
-                openFileDialog = new OpenFileDialog();
-                openFileDialog.Multiselect = false;
-                openFileDialog.Filter = "Text files (*.txt)|*.txt|All files (*.*)|*.*";
-                openFileDialog.InitialDirectory = Environment.GetFolderPath(Environment.SpecialFolder.Desktop);
-                if (openFileDialog.ShowDialog() == true)
-                    txtFile.Text = openFileDialog.FileName;
-            }
-            catch (Exception)
-            {
-                MessageBox.Show("Error!");
-            }
-
-        }
+        
 
         private void btnOpenXlxsFiles_Click(object sender, RoutedEventArgs e)
         {
@@ -68,7 +52,8 @@ namespace CheckCalls1._1
             {
                 Stopwatch stopWatch = new Stopwatch();
                 stopWatch.Start();
-                string[] paths = new string[2] { txtFile.Text, xlxsFile.Text, };
+                var inputLine = input.Text.ToString();
+                string[] paths = new string[2] {inputLine, xlxsFile.Text};
                 await Function.Main(paths);
 
                 MessageBoxResult result = MessageBox.Show($"Time: {stopWatch.Elapsed.ToString(@"mm\:ss\.ff")}min. Ready. Do you want to close this window?",

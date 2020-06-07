@@ -100,19 +100,16 @@ namespace CheckCalls1._1
             return col;
         }
 
-        private static async Task<List<string>> GetValueFromTxtDocunment(string filePath)
+        private static async Task<List<string>> GetValueFromTxtDocunment(string inputData)
         {
             var line = new List<string>();
             var replaceElements = new List<string>();
 
             await Task.Run(() =>
             {
-                using (StreamReader sr = new StreamReader(filePath))
-                {
                     string[] separatingStrings = { " ", ",", ".", ":", ";", ", ", "\n", "\r" };
 
-                    line = sr.ReadToEnd().Split(separatingStrings, StringSplitOptions.RemoveEmptyEntries).ToList();
-                }
+                    line = inputData.Split(separatingStrings, StringSplitOptions.RemoveEmptyEntries).ToList();
 
                 for (int i = 0; i < line.Count; i++)
                 {
