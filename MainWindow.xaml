@@ -14,9 +14,10 @@
             <RowDefinition Height="19*"/>
         </Grid.RowDefinitions>
         <TextBox IsEnabled="True" x:Name="xlxsFile" HorizontalAlignment="Left" Text="Insert .xlxs document" TextWrapping="Wrap" VerticalAlignment="Center" Width="513" Height="26" Grid.ColumnSpan="3" Margin="10,56,0,44.4" Grid.Row="1"/>
-        <Button  Name="btnOpenXlxsFile" Click="btnOpenXlxsFiles_Click" Margin="458.6,56,57,49.4" Background="White" Grid.Column="2" Grid.Row="1">Choose .xlxs file</Button>
-        <Button Margin="403.6,126,30,12.4" Name="btnSubmitFile" Click="btnSubmitFiles_Click" Background="SkyBlue" Foreground="Black" Grid.Column="2" Grid.Row="1" Grid.RowSpan="2" >SUBMIT</Button>
-        <TextBox AcceptsReturn="True" VerticalScrollBarVisibility="Visible" Name="input" Background="White" HorizontalAlignment="Left" Margin="10,35,0,0" TextWrapping="WrapWithOverflow" Text="Insert data from Sku" VerticalAlignment="Top" Height="207" Width="513" Grid.ColumnSpan="3"/>
+        <Button  Name="btnOpenXlxsFile" Click="BtnOpenXlxsFiles_Click" Margin="458.6,56,57,49.4" Background="White" Grid.Column="2" Grid.Row="1">Choose .xlxs file</Button>
+        <Button Margin="403.6,126,30,12.4" Name="btnSubmitFile" Click="BtnSubmitFiles_Click" Background="SkyBlue" Foreground="Black" Grid.Column="2" Grid.Row="1" Grid.RowSpan="2" >SUBMIT</Button>
+        <TextBox AcceptsReturn="True" VerticalScrollBarVisibility="Visible" Name="input" Background="White" HorizontalAlignment="Left" Margin="10,35,0,0" TextWrapping="WrapWithOverflow" Text="Insert data from Skype" VerticalAlignment="Top" Height="207" Width="513" Grid.ColumnSpan="3"/>
+
     </Grid>
 </Window>
 

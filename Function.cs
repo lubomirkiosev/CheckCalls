@@ -1,14 +1,16 @@
-﻿using Syncfusion.Drawing;
-using Syncfusion.XlsIO;
-using System;
-using System.Collections.Generic;
-using System.IO;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace CheckCalls1._1
+﻿namespace CheckCalls1._1
 {
+    using Syncfusion.Drawing;
+    using Syncfusion.XlsIO;
+    using System;
+    using System.Collections.Generic;
+    using System.Diagnostics;
+    using System.IO;
+    using System.Linq;
+    using System.Text;
+    using System.Threading.Tasks;
+    using System.Windows;
+
     public class Function
     {
         public static async Task Main(string[] args)
@@ -28,27 +30,30 @@ namespace CheckCalls1._1
 
                 var sheet = workbook.ActiveSheet;
 
-                while (sheet.GetValueRowCol(firstRow, 1).ToString() != string.Empty)
+                await Task.Run(() =>
                 {
-                    var targetData = sheet.GetValueRowCol(firstRow, 1).ToString();
-
-                    if (line.Contains(targetData) && sheet.GetValueRowCol(firstRow, col).ToString() == string.Empty)
+                    while (sheet.GetValueRowCol(firstRow, 1).ToString() != string.Empty)
                     {
-                        sheet.Range[firstRow, col].CellStyle.Color = Color.White;
-                        sheet.SetValueRowCol("T", firstRow, col);
-                        workbook.Version = ExcelVersion.Excel2016;
-                        workbook.SaveAs(inputStream);
-                    }
-                    else if (sheet.GetValueRowCol(firstRow, col).ToString() == string.Empty)
-                    {
-                        sheet.Range[firstRow, col].CellStyle.Color = Color.Yellow;
-                        sheet.Range[firstRow, col].BorderAround(ExcelLineStyle.Thick, Color.Black);
-                        workbook.Version = ExcelVersion.Excel2016;
-                        workbook.SaveAs(inputStream);
-                    }
+                        var targetData = sheet.GetValueRowCol(firstRow, 1).ToString();
 
-                    firstRow++;
-                }
+                        if (line.Contains(targetData) && sheet.GetValueRowCol(firstRow, col).ToString() == string.Empty)
+                        {
+                            sheet.Range[firstRow, col].CellStyle.Color = Color.White;
+                            sheet.SetValueRowCol("T", firstRow, col);
+                            workbook.Version = ExcelVersion.Excel2016;
+                            workbook.SaveAs(inputStream);
+                        }
+                        else if (sheet.GetValueRowCol(firstRow, col).ToString() == string.Empty)
+                        {
+                            sheet.Range[firstRow, col].CellStyle.Color = Color.Yellow;
+                            sheet.Range[firstRow, col].BorderAround(ExcelLineStyle.Thick, Color.Black);
+                            workbook.Version = ExcelVersion.Excel2016;
+                            workbook.SaveAs(inputStream);
+                        }
+                        firstRow++;
+                    }
+                });
+
                 inputStream.Dispose();
             }
         }
@@ -107,9 +112,9 @@ namespace CheckCalls1._1
 
             await Task.Run(() =>
             {
-                    string[] separatingStrings = { " ", ",", ".", ":", ";", ", ", "\n", "\r" };
+                string[] separatingStrings = { " ", ",", ".", ":", ";", ", ", "\n", "\r" };
 
-                    line = inputData.Split(separatingStrings, StringSplitOptions.RemoveEmptyEntries).ToList();
+                line = inputData.Split(separatingStrings, StringSplitOptions.RemoveEmptyEntries).ToList();
 
                 for (int i = 0; i < line.Count; i++)
                 {
