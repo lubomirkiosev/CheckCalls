@@ -42,8 +42,10 @@
 
         private async void BtnSubmitFiles_Click(object sender, RoutedEventArgs e)
         {
-
+            btnOpenXlxsFile.IsEnabled = false;
             btnSubmitFile.IsEnabled = false;
+            xlxsFile.IsEnabled = false;
+            input.IsEnabled = false;
 
             Stopwatch stopWatch = new Stopwatch();
             stopWatch.Start();
@@ -59,7 +61,9 @@
 
                 await Task.Run(() => Function.Main(paths));
 
-                MessageBoxResult result = MessageBox.Show($"Time: {stopWatch.Elapsed.ToString(@"mm\:ss\.ff")}min. Ready. Do you want to close this window?",
+                MessageBoxResult result = MessageBox.
+                    Show($"Time: {stopWatch.Elapsed.ToString(@"mm\:ss\.ff")}min. " +
+                    $"Ready. Do you want to close this window?",
                                       "Confirmation",
                                       MessageBoxButton.YesNo,
                                       MessageBoxImage.Question);
@@ -72,12 +76,18 @@
             catch (IOException)
             {
                 MessageBox.Show("The .xlxs file is open!");
+                btnOpenXlxsFile.IsEnabled = true;
                 btnSubmitFile.IsEnabled = true;
+                xlxsFile.IsEnabled = true;
+                input.IsEnabled = true;
             }
             catch (Exception)
             {
                 MessageBox.Show("Error!");
+                btnOpenXlxsFile.IsEnabled = true;
                 btnSubmitFile.IsEnabled = true;
+                xlxsFile.IsEnabled = true;
+                input.IsEnabled = true;
             }
 
 
