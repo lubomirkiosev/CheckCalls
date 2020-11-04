@@ -63,12 +63,13 @@
 
                 MessageBoxResult result = MessageBox.
                     Show($"Time: {stopWatch.Elapsed.ToString(@"mm\:ss\.ff")}min. " +
-                    $"Ready. Do you want to close this window?",
+                    $"Ready. Do you want to close this window and open .xlxs file?",
                                       "Confirmation",
                                       MessageBoxButton.YesNo,
                                       MessageBoxImage.Question);
                 if (result == MessageBoxResult.Yes)
                 {
+                    Process.Start(fullFilePath);
                     Application.Current.Shutdown();
                 }
 
